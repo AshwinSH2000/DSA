@@ -8,7 +8,7 @@ The sum of two numbers result in 0 iff both the bits I am going to add are eithe
 The carry of two numbers result in 1 iff both the bits I am going to add are 1 but the thing to note here is that it is left shifted by 1 bit. 
 This operation is AND of two numbers followed by leftshift by 1 bit. 
 Implemented this logic in a recursive function.
-/*
+*/
 
 #include<iostream>
 using namespace std;
