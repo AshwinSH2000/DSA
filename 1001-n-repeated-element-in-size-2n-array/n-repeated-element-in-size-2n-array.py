@@ -6,8 +6,8 @@ class Solution:
             if i not in dtn:
                 dtn[i] = 1
             else:
-                dtn[i] = dtn[i] + 1
-                if dtn[i] == n:
-                    return i
+                # dtn[i] = dtn[i] + 1
+                # if dtn[i] == n:
+                return i
 
          
