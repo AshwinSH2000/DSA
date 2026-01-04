@@ -3,9 +3,6 @@ class NumArray:
     def __init__(self, nums: List[int]):
         self.nums = nums
         self.pSum = []
-        self.calcPrefixSum()
-
-    def calcPrefixSum(self):
         indSum = 0
         for i in range (len(self.nums)):
             indSum = self.nums[i] + indSum
