@@ -12,15 +12,11 @@ class Solution:
             runningSum += i
             if (runningSum - k) in prevSumMap:
                 count += prevSumMap[runningSum - k]
-                if runningSum in prevSumMap:
-                    prevSumMap[runningSum] += 1
-                else:
-                    prevSumMap[runningSum] = 1
+                
+            if runningSum in prevSumMap:
+                prevSumMap[runningSum] += 1
             else:
-                if runningSum in prevSumMap:
-                    prevSumMap[runningSum] += 1
-                else:
-                    prevSumMap[runningSum] = 1
+                prevSumMap[runningSum] = 1
 
         return count
         
