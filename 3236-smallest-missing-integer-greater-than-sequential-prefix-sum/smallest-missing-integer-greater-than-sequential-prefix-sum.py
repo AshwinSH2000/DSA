@@ -19,6 +19,9 @@ class Solution:
             else:
                 break
             
+        # slight tweak to reduce time complexity in 2nd submission
+        nums = set(nums)
+            
         while prefixSum in nums:
             prefixSum += 1
         
