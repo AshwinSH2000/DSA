@@ -7,14 +7,14 @@ class Solution:
         prefix sum to from its left side and its suffix sum from its right side
         '''
         n = len(nums)
-        prefixSum = []
-        suffixSum = [0]*n
+        prefixSum = [1]*n
+        suffixSum = [1]*n
         
         for i in range(n):
             if not i:
-                prefixSum.append(nums[i])
+                prefixSum[i]=nums[i]
             else:
-                prefixSum.append(nums[i]*prefixSum[i-1])
+                prefixSum[i]=(nums[i]*prefixSum[i-1])
 
         for i in range(n-1, -1, -1):
             if i==n-1:
@@ -23,13 +23,13 @@ class Solution:
                 suffixSum[i]=(nums[i]*suffixSum[i+1])
 
         # ok now need to find the product of left and right
-        result = []
+        result = [1]*n
         for i in range(n):
             if i==0:
-                result.append(suffixSum[i+1])
+                result[i]=suffixSum[i+1]
             elif i==n-1:
-                result.append(prefixSum[i-1])
+                result[i]=(prefixSum[i-1])
             else:
-                result.append(prefixSum[i-1]*suffixSum[i+1])
+                result[i]=(prefixSum[i-1]*suffixSum[i+1])
         
         return result
