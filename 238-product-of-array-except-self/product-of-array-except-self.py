@@ -6,9 +6,10 @@ class Solution:
         in the third iteration, to find the product of array w/o num, multiply its
         prefix sum to from its left side and its suffix sum from its right side
         '''
-        prefixSum = []
-        suffixSum = []
         n = len(nums)
+        prefixSum = []
+        suffixSum = [0]*n
+        
         for i in range(n):
             if not i:
                 prefixSum.append(nums[i])
@@ -17,10 +18,9 @@ class Solution:
 
         for i in range(n-1, -1, -1):
             if i==n-1:
-                suffixSum.append(nums[i])
+                suffixSum[i]=nums[i]
             else:
-                # x=
-                suffixSum.insert(0,nums[i]*suffixSum[0])
+                suffixSum[i]=(nums[i]*suffixSum[i+1])
 
         # ok now need to find the product of left and right
         result = []
