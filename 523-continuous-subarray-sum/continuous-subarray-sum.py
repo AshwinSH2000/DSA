@@ -13,10 +13,11 @@ class Solution:
         runningSum = 0
         for i in range(len(nums)):
             runningSum += nums[i]
-            if runningSum % k in prevSum:
-                if i-prevSum[runningSum % k]>=2:
+            rem = runningSum % k
+            if rem in prevSum:
+                if i-prevSum[rem]>=2:
                     return True
             else:
-                prevSum[runningSum % k] = i
+                prevSum[rem] = i
 
         return False
