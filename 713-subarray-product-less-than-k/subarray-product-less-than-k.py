@@ -5,6 +5,8 @@ class Solution:
         when the product of any subarray is less than k, 
         then you count all possible subarrays in it. 
         '''
+        if k<=1:
+            return 0
         product = 1
         left, right = 0, 0
         count = 0
