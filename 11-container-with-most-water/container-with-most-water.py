@@ -5,17 +5,15 @@ class Solution:
         calc area and store it. then move the lower value among the two 
         calc area and update if it is > max and keep doing until left<right
         '''
-        n = len(height)
-        if n==2:
-            return min(height)
         
-        left, right = 0, n-1
+        left, right = 0, len(height)-1
         maxarea = 0
-        area = 0
         while left<right:
-            area = (right-left)*min(height[left],height[right]) 
+            min_h = height[left]
+            max_h = height[right]
+            area = (right-left)*min(min_h,max_h) 
             maxarea = max(maxarea, area)
-            if height[left]<height[right]:
+            if min_h<max_h:
                 left+=1
             else:
                 right-=1
