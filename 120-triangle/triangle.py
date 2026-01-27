@@ -21,7 +21,6 @@ class Solution:
                 print(triangle[i][j], get(i-1,j), get(i-1, j-1))
                 triangle[i][j] = triangle[i][j] + min(get(i-1, j), get(i-1,j-1))
 
-        print(triangle)   
         return min(triangle[len(triangle)-1])
 
             
