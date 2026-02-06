@@ -4,7 +4,6 @@ FROM Employee e, Department d
 WHERE e.departmentId = d.id
 AND (e.departmentId, e.Salary) IN (
     SELECT employee.departmentId, MAX(employee.salary)
-    FROM Employee, Department
-    WHERE employee.departmentId = department.id
+    FROM Employee
     GROUP BY employee.departmentId
 )
