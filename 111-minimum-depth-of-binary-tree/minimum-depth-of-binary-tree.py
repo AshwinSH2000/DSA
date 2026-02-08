@@ -11,19 +11,38 @@ replace max with min... that leads to a small problem
 2nd approach is slightly better. (to avoid float(inf))
 3rd approach is BFS which is the fastest
 '''
-# Approach 2
-class Solution:
+# Approach 3
+from collections import deque
+
+class Solution: 
     def minDepth(self, root: Optional[TreeNode]) -> int:
-        if root is None:
+        if not root:
             return 0
-        
-        if not root.left:
-            return 1+self.minDepth(root.right)
-        
-        if not root.right:
-            return 1+self.minDepth(root.left)
-        
-        return 1+min(self.minDepth(root.left), self.minDepth(root.right))
+
+        queue = deque([(root, 1)]) #storing node and its depth together
+
+        while queue:
+            node, depth = queue.popleft()
+
+            if not node.left and not node.right:
+                return depth
+            
+            if node.left:
+                queue.append((node.left, depth+1))
+            if node.right:
+                queue.append((node.right, depth+1))
+
+# Approach 2
+# class Solution:
+#     def minDepth(self, root: Optional[TreeNode]) -> int:
+#         if root is None:
+#             return 0
+#         if not root.left:
+#             return 1+self.minDepth(root.right)
+#         if not root.right:
+#             return 1+self.minDepth(root.left)
+#         return 1+min(self.minDepth(root.left), self.minDepth(root.right))
+
 
 # Approach 1
 # class Solution:
